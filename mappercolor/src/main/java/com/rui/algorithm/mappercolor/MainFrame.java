@@ -1,4 +1,4 @@
-package com.freer.mappercolor;
+package com.rui.algorithm.mappercolor;
 
 import java.awt.BorderLayout;
 import java.awt.Container;

@@ -1,4 +1,4 @@
-package com.freer.mappercolor;
+package com.rui.algorithm.mappercolor;
 
 import java.io.File;
 import java.io.IOException;
