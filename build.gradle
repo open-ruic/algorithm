@@ -1,13 +1,8 @@
-
-
 subprojects {
     group 'com.rui.algorithm'
     version '1.0-SNAPSHOT'
 
-
     repositories {
-        maven {
-            url 'http://buildrepo.sonymobile.net/libs-release'
-        }
+        mavenCentral()
     }
 }
