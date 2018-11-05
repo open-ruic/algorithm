@@ -1,4 +1,2 @@
-include 'mappercolor'
 include "sorting"
 include 'datastructure'
-
