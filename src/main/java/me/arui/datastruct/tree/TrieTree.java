@@ -23,7 +23,7 @@ public class TrieTree {
     public void addWord(String word) {
         char[] chars = word.toCharArray();
         Node tmp = root;
-        for(int i = 0; i < chars.length; i++)  {
+        for(int i = 0; i < chars.length; i++) {
             Node newNode = new Node(chars[i], (i < (chars.length - 1)) ? NodeType.UNCOMPLETED : NodeType.COMPLETED);
             tmp = tmp.addChild(newNode);
         }
@@ -32,7 +32,7 @@ public class TrieTree {
     public Node findWord(String word) {
         char[] chars = word.toLowerCase().toCharArray();
         Node tmp = root;
-        for(int i = 0; i < chars.length; i++)  {
+        for(int i = 0; i < chars.length; i++) {
             tmp = tmp.findChild(chars[i]);
             if(tmp == null) {
                 return null;
