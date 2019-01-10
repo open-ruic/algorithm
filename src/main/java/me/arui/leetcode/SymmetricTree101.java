@@ -1,5 +1,8 @@
 package me.arui.leetcode;
 
+import me.arui.datastruct.util.TreeNode;
+import me.arui.datastruct.util.TreeUtil;
+
 /**
  * 101. Symmetric Tree
  * https://leetcode.com/problems/symmetric-tree/
@@ -18,28 +21,11 @@ public class SymmetricTree101 {
                 && isMirror(t1.left, t2.right);
     }
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static void test(int[] treeData) {
-        TreeNode parent = create(0, treeData);
+        TreeNode parent = TreeUtil.create(0, treeData);
         SymmetricTree101 test = new SymmetricTree101();
         test.isSymmetric(parent);
-    }
-
-    public static TreeNode create(int i, int[] treeData) {
-        if (i > (treeData.length - 1)) return null;
-        TreeNode node = new TreeNode(treeData[i]);
-        node.left = create(2 * i + 1, treeData);
-        node.right = create(2 * i + 2, treeData);
-        return node;
     }
 
     public static void main(String[] args) {
