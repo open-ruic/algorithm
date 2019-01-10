@@ -15,23 +15,23 @@ public class Node<T> implements Cloneable {
         this.key = key;
         this.value = value;
         this.level = listLevel;
-        if(listLevel > 1) {
+        if (listLevel > 1) {
             this.setDown(new Node<T>(key, value, --listLevel));
         }
     }
 
     public boolean equals(Object o) {
-        if (this==o) {
+        if (this == o) {
             return true;
         }
-        if (o==null) {
+        if (o == null) {
             return false;
         }
         if (!(o instanceof Node<?>)) {
             return false;
         }
 
-        Node<T> ent = (Node<T>)  o;
+        Node<T> ent = (Node<T>) o;
         return (ent.getKey() == key) && (ent.getValue() == value);
     }
 

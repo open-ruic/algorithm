@@ -13,7 +13,7 @@ public class RBTreeSort {
     }
 
     public static void main(String[] args) {
-        int a[] = {3,1,5,7,2,4,9,6};
+        int a[] = {3, 1, 5, 7, 2, 4, 9, 6};
         RBTreeSort rbTreeSort = new RBTreeSort();
         rbTreeSort.sort(a);
     }

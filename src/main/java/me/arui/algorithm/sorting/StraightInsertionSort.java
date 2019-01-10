@@ -2,10 +2,9 @@ package me.arui.algorithm.sorting;
 
 /**
  * 直接插入排序算法
- *
+ * <p>
  * 运作如下：
  * 将一个记录插入一个有序的队列，从而得到一个新的有序，记录数增加1的新的队列
- *
  */
 public class StraightInsertionSort {
 
@@ -25,21 +24,21 @@ public class StraightInsertionSort {
     }
 
     public void insert(int number) {
-        if(size == initialCapacity) {
+        if (size == initialCapacity) {
             throw new IndexOutOfBoundsException();
         }
-        if(size == 0) {
+        if (size == 0) {
             data[0] = number;
         } else {
             int tmp = number;
-            for(int i = 0; i < size; i++) {
-                if(data[i] > tmp) {
+            for (int i = 0; i < size; i++) {
+                if (data[i] > tmp) {
                     int old = data[i];
                     data[i] = tmp;
                     tmp = old;
                 }
-                if(i == size-1) {
-                    data[i+1] =  tmp;
+                if (i == size - 1) {
+                    data[i + 1] = tmp;
                 }
             }
         }
@@ -48,7 +47,7 @@ public class StraightInsertionSort {
 
     public String toString() {
         StringBuffer str = new StringBuffer();
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             str.append(data[i]);
             str.append("-");
         }

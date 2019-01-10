@@ -18,7 +18,7 @@ public class QuickSort {
     public int[] sort(int low, int high) {
         int i = low;
         int j = high;
-        int pivot = data[low + (high-low)/2];
+        int pivot = data[low + (high - low) / 2];
 
         while (i <= j) {
             while (data[i] < pivot) {
@@ -43,10 +43,10 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int a[] = {3,1,5,7,2,4,9,6};
+        int a[] = {3, 1, 5, 7, 2, 4, 9, 6};
         QuickSort sorting = new QuickSort(a);
         a = sorting.sort(0, 7);
-        for(int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
     }

@@ -7,7 +7,7 @@ public class ValidParentheses20 {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         char[] chars = s.toCharArray();
-        for(int i = 0; i < chars.length; i++) {
+        for (int i = 0; i < chars.length; i++) {
             char now = chars[i];
             switch (now) {
                 case '{':
@@ -18,19 +18,19 @@ public class ValidParentheses20 {
                 case '}':
                 case ')':
                 case ']':
-                    if(stack.isEmpty()) return false;
+                    if (stack.isEmpty()) return false;
                     Character pop = stack.pop();
-                    if(now == '}' && !pop.equals('{')) {
+                    if (now == '}' && !pop.equals('{')) {
                         return false;
-                    } else if(now == ')' && !pop.equals('(')) {
+                    } else if (now == ')' && !pop.equals('(')) {
                         return false;
-                    } else if(now == ']' && !pop.equals('[')) {
+                    } else if (now == ']' && !pop.equals('[')) {
                         return false;
                     }
                     break;
             }
         }
-        if(stack.isEmpty()) return true;
+        if (stack.isEmpty()) return true;
         return false;
     }
 

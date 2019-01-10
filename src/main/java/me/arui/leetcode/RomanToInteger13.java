@@ -9,7 +9,7 @@ public class RomanToInteger13 {
 
     public int romanToInt(String s) {
         int[] numbers = new int[s.length()];
-        for(int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             int number = 0;
             switch (s.charAt(i)) {
                 case 'I':
@@ -34,15 +34,15 @@ public class RomanToInteger13 {
                     number = 1000;
                     break;
             }
-            if(i > 0 && number > numbers[i-1]) {
-                numbers[i-1] = numbers[i-1] * -1;
+            if (i > 0 && number > numbers[i - 1]) {
+                numbers[i - 1] = numbers[i - 1] * -1;
                 numbers[i] = number;
             } else {
                 numbers[i] = number;
             }
         }
         int total = 0;
-        for(int i=0; i< numbers.length;i++) {
+        for (int i = 0; i < numbers.length; i++) {
             total += numbers[i];
         }
         return total;

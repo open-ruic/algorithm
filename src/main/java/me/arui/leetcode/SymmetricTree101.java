@@ -35,14 +35,14 @@ public class SymmetricTree101 {
     }
 
     public static TreeNode create(int i, int[] treeData) {
-        if(i > (treeData.length -1)) return null;
-        TreeNode node  = new TreeNode(treeData[i]);
+        if (i > (treeData.length - 1)) return null;
+        TreeNode node = new TreeNode(treeData[i]);
         node.left = create(2 * i + 1, treeData);
         node.right = create(2 * i + 2, treeData);
         return node;
     }
 
     public static void main(String[] args) {
-        test(new int[] {1, 2, 2, 3, 4, 4, 3});
+        test(new int[]{1, 2, 2, 3, 4, 4, 3});
     }
 }

@@ -7,16 +7,16 @@ package me.arui.leetcode;
 public class RemoveDuplicates26 {
 
     public int removeDuplicates(int[] nums) {
-        if(nums.length == 0) return 0;
-        if(nums.length == 1) return 1;
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return 1;
         int preIndex = 0;
         int dupNum = 0;
-        for(int i = 1; i< nums.length; i++) {
-            if(nums[i] != nums[preIndex]) {
-                if(i != preIndex+1) {
-                    nums[preIndex+1] = nums[i];
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[preIndex]) {
+                if (i != preIndex + 1) {
+                    nums[preIndex + 1] = nums[i];
                 }
-                preIndex = preIndex+1;
+                preIndex = preIndex + 1;
             } else {
                 dupNum++;
             }
@@ -25,9 +25,9 @@ public class RemoveDuplicates26 {
     }
 
     public static void print(int length, int[] nums) {
-        for(int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             System.out.print(String.valueOf(nums[i]));
-            if(i != length -1) {
+            if (i != length - 1) {
                 System.out.print("->");
             }
         }
@@ -42,9 +42,9 @@ public class RemoveDuplicates26 {
 
     public static void main(String[] args) {
         RemoveDuplicates26 test = new RemoveDuplicates26();
-        test(test, new int[] {1,1,2});
-        test(test, new int[] {0, 1});
-        test(test, new int[] {0,0,1,1,1,2,2,3,3,4});
+        test(test, new int[]{1, 1, 2});
+        test(test, new int[]{0, 1});
+        test(test, new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4});
     }
 
 }

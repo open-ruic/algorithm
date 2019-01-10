@@ -16,7 +16,7 @@ public class TernaryTreeTest {
         ternaryTree.addWord("LIMITED");
         ternaryTree.print();
         Set<String> sets = ternaryTree.findSimilar("sim");
-        for(String set : sets) {
+        for (String set : sets) {
             System.out.println(set);
         }
     }

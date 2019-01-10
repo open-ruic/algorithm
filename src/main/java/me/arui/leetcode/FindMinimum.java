@@ -3,9 +3,8 @@ package me.arui.leetcode;
 import java.util.Date;
 
 /**
- *
  * leetcode 154. Find Minimum in Rotated Sorted Array II
- *
+ * <p>
  * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/description/
  */
 public class FindMinimum {
@@ -13,7 +12,7 @@ public class FindMinimum {
     public int findMin(int[] nums) {
         int min = nums[0];
         for (int number : nums) {
-            if(number <  min) {
+            if (number < min) {
                 min = number;
                 break;
             }
@@ -29,6 +28,6 @@ public class FindMinimum {
         Date beginDate = new Date();
         System.out.println(findMinimum.findMin(arr));
         Date endDate = new Date();
-        System.out.println("Time : "  + (endDate.getTime() - beginDate.getTime()));
+        System.out.println("Time : " + (endDate.getTime() - beginDate.getTime()));
     }
 }

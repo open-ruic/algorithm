@@ -16,7 +16,7 @@ public class TrieTreeTest {
         trieTree.addWord("LIMITED");
 
         Set<String> sets = trieTree.findSimilar("sim");
-        for(String set : sets) {
+        for (String set : sets) {
             System.out.println(set);
         }
     }

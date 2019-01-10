@@ -2,11 +2,11 @@ package me.arui.algorithm.sorting;
 
 /**
  * 堆排序算法
- *
+ * <p>
  * 堆特点：
  * 1. 一维数组描述完全二叉树，父节点索引 i, 对应子节点索引 2i+1, 2i+2
  * 2. 父节点值大于子节点（最小堆相反）
- *
+ * <p>
  * 堆排序：
  * 1. 将堆定点数据移动至队列某位
  * 2. 从数组0到length-1重新调整堆
@@ -32,7 +32,7 @@ public class HeapSort<T extends Comparable> {
     }
 
     private void buildHeap() {
-        for(int i = values.length / 2; i >= 0; i--) {
+        for (int i = values.length / 2; i >= 0; i--) {
             heapAdjust(i, values.length);
         }
     }
@@ -40,14 +40,14 @@ public class HeapSort<T extends Comparable> {
     private void heapAdjust(int i, int n) {
         int childIndex;
 
-        while(leftChildIndex(i) < n) {
+        while (leftChildIndex(i) < n) {
             T parent = values[i];
             childIndex = leftChildIndex(i);
-            if(childIndex != n - 1 && values[childIndex].compareTo(values[childIndex + 1]) > 0) {
+            if (childIndex != n - 1 && values[childIndex].compareTo(values[childIndex + 1]) > 0) {
                 childIndex = childIndex + 1;
             }
 
-            if(parent.compareTo(values[childIndex]) > 0) { //
+            if (parent.compareTo(values[childIndex]) > 0) { //
                 swap(i, childIndex);
             } else {
                 break;

@@ -3,17 +3,16 @@ package me.arui.leetcode;
 /**
  * 69. Sqrt(x)
  * https://leetcode.com/problems/sqrtx/
- *
  */
 public class Sqrtx69 {
 
     public int mySqrt(int x) {
         double precision = 0.0001f;
         double tmp = x;
-        double result = x/(double)2;
+        double result = x / (double) 2;
         while (tmp - result > precision) {
             tmp = result;
-            result = (tmp + x/tmp)/(double)2;
+            result = (tmp + x / tmp) / (double) 2;
         }
         return (int) Math.floor(result);
 

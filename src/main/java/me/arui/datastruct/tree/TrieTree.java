@@ -7,8 +7,6 @@ import java.util.Set;
 
 /**
  * Trie Tree
- *
- *
  */
 public class TrieTree {
 
@@ -23,7 +21,7 @@ public class TrieTree {
     public void addWord(String word) {
         char[] chars = word.toCharArray();
         Node tmp = root;
-        for(int i = 0; i < chars.length; i++) {
+        for (int i = 0; i < chars.length; i++) {
             Node newNode = new Node(chars[i], (i < (chars.length - 1)) ? NodeType.UNCOMPLETED : NodeType.COMPLETED);
             tmp = tmp.addChild(newNode);
         }
@@ -32,9 +30,9 @@ public class TrieTree {
     public Node findWord(String word) {
         char[] chars = word.toLowerCase().toCharArray();
         Node tmp = root;
-        for(int i = 0; i < chars.length; i++) {
+        for (int i = 0; i < chars.length; i++) {
             tmp = tmp.findChild(chars[i]);
-            if(tmp == null) {
+            if (tmp == null) {
                 return null;
             }
         }
@@ -43,7 +41,7 @@ public class TrieTree {
 
     public Set<String> findSimilar(String word) {
         Node tmp = findWord(word);
-        if(tmp == null) return new HashSet<>();
+        if (tmp == null) return new HashSet<>();
         return dfs(word, tmp);
     }
 
@@ -54,10 +52,10 @@ public class TrieTree {
     }
 
     private void dfs(String prefix, Node node, Set<String> result) {
-        for (Node child: node.childs) {
-            if(child == null) break;
+        for (Node child : node.childs) {
+            if (child == null) break;
             dfs(prefix + child.word, child, result);
-            if (NodeType.COMPLETED == child.type){
+            if (NodeType.COMPLETED == child.type) {
                 result.add(prefix + child.word);
             }
         }
@@ -85,12 +83,12 @@ public class TrieTree {
 
         public Node addChild(Node node) {
             int index = 0;
-            for(; index < ALPHABET_SIZE; index++) {
+            for (; index < ALPHABET_SIZE; index++) {
                 Node child = childs[index];
-                if(child == null)
+                if (child == null)
                     break;
-                if(child.word == node.word ) {
-                    if(node.type == NodeType.COMPLETED) {
+                if (child.word == node.word) {
+                    if (node.type == NodeType.COMPLETED) {
                         child.type = node.type;
                     }
                     return child;
@@ -101,8 +99,8 @@ public class TrieTree {
         }
 
         public Node findChild(char word) {
-            for(Node child : childs) {
-                if(child != null && child.word == word) {
+            for (Node child : childs) {
+                if (child != null && child.word == word) {
                     return child;
                 }
             }

@@ -17,15 +17,16 @@ public class TernaryTree {
 
     private int spaceLevel = 0;
 
-    public TernaryTree() {}
+    public TernaryTree() {
+    }
 
 
     public void addWord(String word) {
         char[] chars = word.toLowerCase().toCharArray();
         Node tmp = null;
-        for(int i = 0; i < chars.length; i++) {
+        for (int i = 0; i < chars.length; i++) {
             Node newNode = new Node(chars[i], (i < (chars.length - 1)) ? NodeType.UNCOMPLETED : NodeType.COMPLETED);
-            if(root == null) {
+            if (root == null) {
                 root = newNode;
                 tmp = newNode;
             } else {
@@ -35,7 +36,7 @@ public class TernaryTree {
     }
 
     public Node addChild(Node parent, Node newNode) {
-        if(parent == null) {
+        if (parent == null) {
             return root.addBrotherChild(newNode);
         } else {
             return parent.addChild(newNode);
@@ -44,7 +45,7 @@ public class TernaryTree {
 
     public Set<String> findSimilar(String word) {
         Node tmp = findWord(word);
-        if(tmp == null) return new HashSet<>();
+        if (tmp == null) return new HashSet<>();
         return dfs(word, tmp);
     }
 
@@ -55,16 +56,16 @@ public class TernaryTree {
     }
 
     private void dfs(String prefix, Node node, Set<String> result) {
-        if(node.type == NodeType.COMPLETED) {
+        if (node.type == NodeType.COMPLETED) {
             result.add(prefix);
         }
-        if(node.leftChild != null) {
+        if (node.leftChild != null) {
             dfs(prefix + node.leftChild.word, node.leftChild, result);
         }
-        if(node.rightChild != null) {
+        if (node.rightChild != null) {
             dfs(prefix + node.rightChild.word, node.rightChild, result);
         }
-        if(node.centerChild != null) {
+        if (node.centerChild != null) {
             dfs(prefix + node.centerChild.word, node.centerChild, result);
         }
     }
@@ -73,7 +74,7 @@ public class TernaryTree {
         char[] chars = word.toLowerCase().toCharArray();
         Node pre = root;
         Node tmp = root;
-        for(char cha : chars) {
+        for (char cha : chars) {
             pre = tmp;
             tmp = findWord(cha, tmp);
         }
@@ -81,10 +82,10 @@ public class TernaryTree {
     }
 
     private Node findWord(char word, Node node) {
-        if(node == null) return null;
-        if(node.word == word) {
+        if (node == null) return null;
+        if (node.word == word) {
             return node.centerChild;
-        } else if(word < node.word) {
+        } else if (word < node.word) {
             return findWord(word, node.leftChild);
         } else {
             return findWord(word, node.rightChild);
@@ -94,10 +95,10 @@ public class TernaryTree {
     public void print() {
         char[][] result = new char[10][10];
         printNode(0, root, result);
-        for(char[] re : result) {
-            if(re != null) {
-                for(char num : re) {
-                    if(num != 0) {
+        for (char[] re : result) {
+            if (re != null) {
+                for (char num : re) {
+                    if (num != 0) {
                         System.out.print(" " + num + " ");
                     } else {
                         System.out.print("   ");
@@ -109,11 +110,11 @@ public class TernaryTree {
     }
 
     public void printNode(int level, Node node, char[][] result) {
-        if(node == null) return;
-        if(maxLevel < level) maxLevel = level;
+        if (node == null) return;
+        if (maxLevel < level) maxLevel = level;
         int nextLevel = level + 1;
         printNode(nextLevel, node.leftChild, result);
-        if(level < preLevel) {
+        if (level < preLevel) {
             spaceLevel++;
         }
         preLevel = level;
@@ -141,11 +142,11 @@ public class TernaryTree {
         }
 
         public Node addChild(Node newNode) {
-            if(this.centerChild == null) {
+            if (this.centerChild == null) {
                 this.centerChild = newNode;
                 return this.centerChild;
             } else {
-                if(centerChild.word == newNode.word) {
+                if (centerChild.word == newNode.word) {
                     this.centerChild.type = newNode.type;
                     return this.centerChild;
                 } else {
@@ -155,10 +156,10 @@ public class TernaryTree {
         }
 
         private Node addBrotherChild(Node newNode) {
-            if(newNode.word == this.word) {
+            if (newNode.word == this.word) {
                 this.type = newNode.type;
                 return this;
-            } else if(newNode.word < this.word) {
+            } else if (newNode.word < this.word) {
                 return addLeftChild(newNode);
             } else {
                 return addRightChild(newNode);
@@ -166,11 +167,11 @@ public class TernaryTree {
         }
 
         private Node addLeftChild(Node newNode) {
-            if(this.leftChild == null) {
+            if (this.leftChild == null) {
                 this.leftChild = newNode;
                 return this.leftChild;
             } else {
-                if(leftChild.word == newNode.word) {
+                if (leftChild.word == newNode.word) {
                     this.leftChild.type = newNode.type;
                     return this.leftChild;
                 } else {
@@ -180,11 +181,11 @@ public class TernaryTree {
         }
 
         private Node addRightChild(Node newNode) {
-            if(this.rightChild == null) {
+            if (this.rightChild == null) {
                 this.rightChild = newNode;
                 return this.rightChild;
             } else {
-                if(rightChild.word == newNode.word) {
+                if (rightChild.word == newNode.word) {
                     this.rightChild.type = newNode.type;
                     return this.rightChild;
                 } else {

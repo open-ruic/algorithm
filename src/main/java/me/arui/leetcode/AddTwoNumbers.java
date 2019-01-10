@@ -2,7 +2,7 @@ package me.arui.leetcode;
 
 /**
  * leetcode 2. Add Two Numbers
- *
+ * <p>
  * https://leetcode.com/problems/add-two-numbers/description/
  */
 public class AddTwoNumbers {
@@ -18,14 +18,14 @@ public class AddTwoNumbers {
             int num2 = nextCur2 != null ? nextCur2.val : 0;
             int sum = carry ? num1 + num2 + 1 : num1 + num2;
 
-            if(sum < 10) {
+            if (sum < 10) {
                 carry = false;
             } else {
                 carry = true;
                 sum = sum - 10;
             }
 
-            if(result == null) {
+            if (result == null) {
                 result = new ListNode(sum);
                 cur = result;
             } else {
@@ -35,7 +35,7 @@ public class AddTwoNumbers {
             nextCur1 = nextCur1 != null ? nextCur1.next : null;
             nextCur2 = nextCur2 != null ? nextCur2.next : null;
         }
-        if(carry) {
+        if (carry) {
             cur.next = new ListNode(1);
         }
         return result;
@@ -44,13 +44,16 @@ public class AddTwoNumbers {
     private static class ListNode {
         int val;
         ListNode next;
-        ListNode(int x) { val = x; }
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 
     public static void main(String[] args) {
         ListNode one = new ListNode(5);
 
-        ListNode two = new ListNode(5 );
+        ListNode two = new ListNode(5);
 
         AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
         ListNode result = addTwoNumbers.addTwoNumbers(one, two);

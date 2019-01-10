@@ -5,9 +5,8 @@ import java.util.Random;
 
 
 /**
- *
  * 跳跃表
- *
+ * <p>
  * 应用于有序数据集合类型，例如Redis的Sorted sets
  *
  * @param <T>
@@ -16,7 +15,7 @@ public class SkipList<T> {
 
     private static final int DEFAULT_LIST_LEVEL = 4;
 
-    private static final double DEFAULT_PROBABILITY =0.5;
+    private static final double DEFAULT_PROBABILITY = 0.5;
 
     private static final int HEAD_KEY = Integer.MIN_VALUE;
 
@@ -32,11 +31,11 @@ public class SkipList<T> {
 
     private Random random;
 
-    public  SkipList() {
+    public SkipList() {
         initList();
     }
 
-    public  SkipList(int listLevel, double probability) {
+    public SkipList(int listLevel, double probability) {
         this.listLevel = listLevel;
         this.probability = probability;
         initList();
@@ -62,13 +61,13 @@ public class SkipList<T> {
 
     private Node<T> findNear(Node<T> node, int key) {
         Node<T> next = node.getRight();
-        if(next.getKey() ==  key) return next;
+        if (next.getKey() == key) return next;
         while (next != null) {
-            if(next.getKey() <= key && next.getRight() != null && next.getRight().getKey() <= key) {
+            if (next.getKey() <= key && next.getRight() != null && next.getRight().getKey() <= key) {
                 next = next.getRight();
                 continue;
-            }else {
-                if(next.getDown() != null) {
+            } else {
+                if (next.getDown() != null) {
                     this.findNear(next.getDown(), key);
                 } else {
                     break;
@@ -83,22 +82,22 @@ public class SkipList<T> {
         Node<T> next = node.getRight();
         pre.setRight(next);
         next.setLeft(pre);
-        while(node.getDown() != null) {
+        while (node.getDown() != null) {
             removeNode(node.getDown());
         }
     }
 
     private void insertAfter(Node<T> node, Node<T> nextNode) {
-        if(node.getLevel() == nextNode.getLevel()) {
+        if (node.getLevel() == nextNode.getLevel()) {
             Node<T> tmpNode = node.getRight();
             node.setRight(nextNode);
             nextNode.setLeft(node);
             nextNode.setRight(tmpNode);
-            while(node.getDown() != null && nextNode.getDown() != null) {
+            while (node.getDown() != null && nextNode.getDown() != null) {
                 insertAfter(node.getDown(), nextNode.getDown());
             }
         } else {
-            while(node.getDown() != null) {
+            while (node.getDown() != null) {
                 insertAfter(node.getDown(), nextNode);
             }
         }
@@ -120,7 +119,7 @@ public class SkipList<T> {
     public String toString() {
         StringBuffer str = new StringBuffer(printLevel(this.header));
         Node<T> down = this.header.getDown();
-        while(down != null) {
+        while (down != null) {
             str.append(printLevel(this.header));
         }
         return str.toString();
