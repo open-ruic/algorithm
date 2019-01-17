@@ -241,7 +241,6 @@ public class RBTree<T extends Comparable> {
         System.out.print("\n");
     }
 
-
     private void centerOrder(RBNode<T> node) {
         if (node != null) {
             centerOrder(node.getLeftChild());
