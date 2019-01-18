@@ -37,7 +37,7 @@ public class BinaryTreeLevel107 {
         return data;
     }
 
-    public static void test(int[] treeData) {
+    public static void test(Integer[] treeData) {
         TreeNode parent = TreeUtil.create(0, treeData);
         BinaryTreeLevel107 test = new BinaryTreeLevel107();
         List<List<Integer>> result = test.levelOrderBottom(parent);
@@ -50,7 +50,7 @@ public class BinaryTreeLevel107 {
     }
 
     public static void main(String[] args) {
-        test(new int[]{3,9,20,-1,-1,15,7});
+        test(new Integer[]{3,9,20,null,null,15,7});
     }
 
 }

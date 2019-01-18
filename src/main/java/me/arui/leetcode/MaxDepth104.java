@@ -16,14 +16,14 @@ public class MaxDepth104 {
         return Math.max(leftMaxLevel, rightMaxLevel) + 1;
     }
 
-    public static void test(int[] treeData) {
+    public static void test(Integer[] treeData) {
         TreeNode parent = TreeUtil.create(0, treeData);
         MaxDepth104 test = new MaxDepth104();
         System.out.println(test.maxDepth(parent));
     }
 
     public static void main(String[] args) {
-        test(new int[]{1, 2, 2, 3, 4, 4, 3});
+        test(new Integer[]{1, 2, 2, 3, 4, 4, 3});
     }
 
 }

@@ -22,13 +22,13 @@ public class SymmetricTree101 {
     }
 
 
-    public static void test(int[] treeData) {
+    public static void test(Integer[] treeData) {
         TreeNode parent = TreeUtil.create(0, treeData);
         SymmetricTree101 test = new SymmetricTree101();
         test.isSymmetric(parent);
     }
 
     public static void main(String[] args) {
-        test(new int[]{1, 2, 2, 3, 4, 4, 3});
+        test(new Integer[]{1, 2, 2, 3, 4, 4, 3});
     }
 }
