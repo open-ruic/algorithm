@@ -12,7 +12,7 @@ import java.util.Stack;
 public class PathSum112 {
 
     public boolean hasPathSum(TreeNode root, int sum) {
-        if(root == null) return false;
+        if (root == null) return false;
         Stack<TreeNode> stack = new Stack<>();
         Stack<Integer> sumStack = new Stack<>();
         stack.add(root);
@@ -22,14 +22,14 @@ public class PathSum112 {
             TreeNode node = stack.pop();
             curSum = sumStack.pop();
 
-            if(curSum == 0 && node.right == null && node.left == null) return true;
+            if (curSum == 0 && node.right == null && node.left == null) return true;
 
-            if(node.right != null) {
+            if (node.right != null) {
                 stack.add(node.right);
                 sumStack.add(curSum - node.right.val);
             }
 
-            if(node.left != null) {
+            if (node.left != null) {
                 stack.add(node.left);
                 sumStack.add(curSum - node.left.val);
             }

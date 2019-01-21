@@ -5,16 +5,15 @@ import me.arui.datastruct.util.TreeNode;
 
 /**
  * AVL平衡二叉树
- *
+ * <p>
  * 特点： 左右子树高度差不超过1，插入和删除时，通过旋转达到平衡
- *
- *
  */
 public class AVLBinaryTree {
 
     private TreeNode root;
 
-    public AVLBinaryTree() {}
+    public AVLBinaryTree() {
+    }
 
     public void insert(int t) {
         root = insert(root, t);

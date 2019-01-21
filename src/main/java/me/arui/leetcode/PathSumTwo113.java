@@ -15,7 +15,7 @@ public class PathSumTwo113 {
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> result = new ArrayList<>();
-        if(root == null) return result;
+        if (root == null) return result;
 
         Stack<TreeNode> stack = new Stack<>();
         Stack<List<Integer>> pathStack = new Stack<>();
@@ -32,11 +32,11 @@ public class PathSumTwo113 {
             TreeNode node = stack.pop();
             curSum = sumStack.pop();
             curPath = pathStack.pop();
-            if(curSum == 0 && node.right == null && node.left == null) {
+            if (curSum == 0 && node.right == null && node.left == null) {
                 result.add(curPath);
             }
 
-            if(node.right != null) {
+            if (node.right != null) {
                 stack.add(node.right);
                 List<Integer> nextPath = new ArrayList<>(curPath);
                 nextPath.add(node.right.val);
@@ -44,7 +44,7 @@ public class PathSumTwo113 {
                 sumStack.add(curSum - node.right.val);
             }
 
-            if(node.left != null) {
+            if (node.left != null) {
                 stack.add(node.left);
                 List<Integer> nextPath = new ArrayList<>(curPath);
                 nextPath.add(node.left.val);
@@ -59,8 +59,8 @@ public class PathSumTwo113 {
         TreeNode parent = TreeUtil.stringToTreeNode(treeData);
         PathSumTwo113 test = new PathSumTwo113();
         List<List<Integer>> result = test.pathSum(parent, sum);
-        for(List<Integer> row : result) {
-            for(Integer data : row) {
+        for (List<Integer> row : result) {
+            for (Integer data : row) {
                 System.out.print(data + " ");
             }
             System.out.println();

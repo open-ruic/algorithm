@@ -10,7 +10,7 @@ import me.arui.datastruct.util.TreeUtil;
 public class MaxDepth104 {
 
     public int maxDepth(TreeNode root) {
-        if(root == null) return 0;
+        if (root == null) return 0;
         int leftMaxLevel = maxDepth(root.left);
         int rightMaxLevel = maxDepth(root.right);
         return Math.max(leftMaxLevel, rightMaxLevel) + 1;

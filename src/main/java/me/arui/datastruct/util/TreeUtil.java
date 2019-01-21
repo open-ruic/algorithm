@@ -7,7 +7,7 @@ public class TreeUtil {
 
     public static TreeNode create(int i, Integer[] treeData) {
         if (i > (treeData.length - 1)) return null;
-        if(treeData[i] == null) return null;
+        if (treeData[i] == null) return null;
         TreeNode node = new TreeNode(treeData[i]);
         node.left = create(2 * i + 1, treeData);
         node.right = create(2 * i + 2, treeData);
@@ -28,7 +28,7 @@ public class TreeUtil {
         nodeQueue.add(root);
 
         int index = 1;
-        while(!nodeQueue.isEmpty()) {
+        while (!nodeQueue.isEmpty()) {
             TreeNode node = nodeQueue.remove();
 
             if (index == parts.length) {
@@ -59,21 +59,21 @@ public class TreeUtil {
     }
 
     public static void preOrderEcho(TreeNode treeNode) {
-        if(treeNode == null) return;
+        if (treeNode == null) return;
         System.out.println(treeNode.val);
         preOrderEcho(treeNode.left);
         preOrderEcho(treeNode.right);
     }
 
     public static void centerOrderEcho(TreeNode treeNode) {
-        if(treeNode == null) return;
+        if (treeNode == null) return;
         centerOrderEcho(treeNode.left);
         System.out.println(treeNode.val);
         centerOrderEcho(treeNode.right);
     }
 
     public static void lastOrderEcho(TreeNode treeNode) {
-        if(treeNode == null) return;
+        if (treeNode == null) return;
         lastOrderEcho(treeNode.left);
         lastOrderEcho(treeNode.right);
         System.out.println(treeNode.val);
@@ -85,8 +85,8 @@ public class TreeUtil {
         while (!queue.isEmpty()) {
             TreeNode cruNode = queue.poll();
             System.out.println(cruNode.val);
-            if(cruNode.left != null) queue.offer(cruNode.left);
-            if(cruNode.right != null) queue.offer(cruNode.right);
+            if (cruNode.left != null) queue.offer(cruNode.left);
+            if (cruNode.right != null) queue.offer(cruNode.right);
         }
     }
 
@@ -101,7 +101,7 @@ public class TreeUtil {
             if (node == null) {
                 System.out.printf("Level%d(%s,%s,%s)\n", level, "NIL", isLeft ? 'L' : 'R', 'B', parent.val);
             } else {
-                System.out.printf("Level%d(%s,%s,%s)\n", level, node.val, isLeft ? 'L' : 'R',  parent.val);
+                System.out.printf("Level%d(%s,%s,%s)\n", level, node.val, isLeft ? 'L' : 'R', parent.val);
             }
         }
         if (node != null) {

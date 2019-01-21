@@ -10,8 +10,8 @@ import me.arui.datastruct.util.TreeUtil;
 public class BalancedBinaryTree110 {
 
     public boolean isBalanced(TreeNode root) {
-        if(root == null) return true;
-        if(isBalanced(root.right) && isBalanced(root.left)) {
+        if (root == null) return true;
+        if (isBalanced(root.right) && isBalanced(root.left)) {
             int leftHeight = getHeight(root.left);
             int rightHeight = getHeight(root.right);
             return Math.abs((leftHeight - rightHeight)) <= 1;
@@ -20,8 +20,8 @@ public class BalancedBinaryTree110 {
     }
 
     private int getHeight(TreeNode node) {
-        if(node == null) return 0;
-        return 1 + Math.max (getHeight(node.left), getHeight(node.right));
+        if (node == null) return 0;
+        return 1 + Math.max(getHeight(node.left), getHeight(node.right));
     }
 
     public static void test(Integer[] nums) {
@@ -31,7 +31,7 @@ public class BalancedBinaryTree110 {
     }
 
     public static void main(String[] args) {
-        test(new Integer[]{3,9,20,null,null,15,7});
+        test(new Integer[]{3, 9, 20, null, null, 15, 7});
     }
 
 }
