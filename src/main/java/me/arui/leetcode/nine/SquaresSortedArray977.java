@@ -28,6 +28,6 @@ public class SquaresSortedArray977 {
     }
 
     public static void main(String[] args) {
-        test(new int[]{-4,-1,0,3,10});
+        test(new int[]{-4, -1, 0, 3, 10});
     }
 }
